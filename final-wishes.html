@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Kirat!</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="page-container page-final-wishes">
+        <canvas id="confetti-canvas"></canvas>
+
+        <div class="letter-container fade-in-up">
+            <h1 class="letter-title">Happy Birthday, Kirat!</h1>
+
+            <p>I wanted to put together a little something to celebrate your day and look back on some of the fun times
+                from our college journey. It's been a wild ride from first year to now, and I'm glad I got to share some
+                of those moments with you.</p>
+            <p>You're a kind, smart, and wonderful person, and you deserve a fantastic birthday and an amazing year
+                ahead. I wish you all the best as we head into our final year, and for all the incredible things you'll
+                do in the future.</p>
+            <p>Hope you have a great day!</p>
+
+            <div class="signature">
+                Your friend,<br>
+                Ankit
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script>
+        // Get the canvas element
+        var myCanvas = document.getElementById('confetti-canvas');
+
+        // Create a confetti instance
+        var myConfetti = confetti.create(myCanvas, {
+            resize: true,
+            useWorker: true
+        });
+
+        // Fire the confetti on page load!
+        myConfetti({
+            particleCount: 150,
+            spread: 180,
+            origin: { y: 0.6 }
+        });
+    </script>
+</body>
+
+</html>

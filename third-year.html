@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3: A Gallery of Good Times</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="page-container page-third-year">
+        <div class="header">
+            <h1 class="fade-in-down">Chapter 3: A Gallery of Good Times</h1>
+            <p class="fade-in-down" style="animation-delay: 0.3s;">"The memories we made this year will stay with me forever."</p>
+        </div>
+
+        <div class="masonry-grid">
+            <div class="grid-item">
+                <a href="images/t1.jpg" data-lightbox="third-year" data-title="That one sunset..."><img src="images/t1.jpg"></a>
+            </div>
+            <div class="grid-item">
+                <a href="images/t2.jpg" data-lightbox="third-year" data-title="Never laughed so hard."><img src="images/t2.jpg"></a>
+            </div>
+            <div class="grid-item">
+                <a href="images/t3.jpg" data-lightbox="third-year" data-title="Core memory moment."><img src="images/t3.jpg"></a>
+            </div>
+            <div class="grid-item">
+                <a href="images/t4.jpg" data-lightbox="third-year" data-title="Exam stress and late-night snacks."><img src="images/t4.jpg"></a>
+            </div>
+            <div class="grid-item">
+                <a href="images/t5.jpg" data-lightbox="third-year" data-title="Just us being us."><img src="images/t5.jpg"></a>
+            </div>
+            </div>
+
+        <div class="navigation-buttons">
+            <a href="final-wishes.html" class="button">The Final Chapter →</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+    
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+    <script>
+      var grid = document.querySelector('.masonry-grid');
+      var msnry;
+
+      imagesLoaded( grid, function() {
+        // init Masonry after all images have loaded
+        msnry = new Masonry( grid, {
+          itemSelector: '.grid-item',
+          columnWidth: '.grid-item',
+          percentPosition: true
+        });
+      });
+    </script>
+</body>
+</html>
