@@ -1,28 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, Kirat!</title>
-    
-    <link rel="stylesheet" href="css/style.css">
-    
+    <title>Happy Raksha Bandhan, Stuti!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/jpg" href="images/istockphoto-1262568017-612x612.jpg">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
-    <div class="welcome-container">
-        <h1 class="fade-in-down">Happy Birthday, Kirat!</h1>
-        <p class="fade-in-down" style="animation-delay: 0.5s;">
-            Happy birthday to one of the most amazing people I've had the pleasure of knowing in college. Made a little something to celebrate your day!
-        </p>
-        
-        <a href="first-year.html" class="button fade-in-up" style="animation-delay: 1s;">
-            Lets Dive in!! 🎥
-        </a>
+<body>
+    <div class="background-animation"></div>
+    <div id="gift-container">
+        <div class="gift-box" id="gift-box">
+            <div class="gift-lid">
+                <div class="bow-knot"></div>
+            </div>
+            <div class="gift-base">
+                <div class="gift-text">For my Dearest Sister</div>
+            </div>
+        </div>
+        <p class="gift-instruction">Click the gift to open!</p>
+    </div>
+    <div id="main-content" class="hidden">
+        <header id="main-header">
+            <nav>
+                <a href="#welcome" class="logo">Happy Rakhi!</a>
+            </nav>
+        </header>
+        <section id="welcome" class="fullscreen-section">
+            <div class="content-wrapper">
+                <h1 data-aos="fade-down">Happy Raksha Bandhan, Stuti!</h1>
+                <p data-aos="fade-down" data-aos-delay="200">From nervous classmates to the family I chose. This is for
+                    you.</p>
+            </div>
+            <a href="#journey" class="scroll-prompt">↓</a>
+        </section>
+        <section id="journey" class="content-section">
+            <h2 class="section-title" data-aos="fade-up">Our Story</h2>
+            <div class="story-deck-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="story-deck">
+                    <div class="story-card active">
+                        <h3>First Year Files</h3>
+                        <p>We started as just classmates in 1st year. Our chats were all about classes, but honestly? I
+                            was a little scared of you back then (you probably know why!). Little did I know what was to
+                            come.</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>The College Fest</h3>
+                        <p>Our first offline meet at the college fest. That's when things started to change. It was the
+                            real beginning of our journey, moving from just classmates to actual friends. A day I won't
+                            forget.</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>Realizing Your Worth</h3>
+                        <p>As time passed, I got to know the real you. We've had our share of ups and downs, but through
+                            it all, our bond as brother and sister only got stronger. That's when I truly realized your
+                            worth.</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>My "Laakhon Mein Ek" Sister</h3>
+                        <p>I know I don't always show it, but you mean everything to me. You truly are my 'laakhon mein
+                            ek' behen. We chose this family, and I couldn't be more grateful. Happy Rakhi to the best
+                            sister!</p>
+                    </div>
+                </div>
+                <div class="story-deck-nav">
+                    <button id="prev-card-btn" class="nav-btn" disabled>&larr; Prev</button>
+                    <button id="next-card-btn" class="nav-btn">Next &rarr;</button>
+                </div>
+            </div>
+        </section>
+        <section id="photos" class="content-section">
+            <h2 class="section-title" data-aos="fade-up">A Few of Our Memories</h2>
+            <div class="polaroid-gallery">
+                <div class="polaroid-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/ChatGPT Image Mar 31, 2025, 02_38_04 PM.png" alt="">
+                    <div class="polaroid-caption">The college fest... where it all began!🤍</div>
+                </div>
+                <div class="polaroid-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/20250214_200705.jpg" alt="">
+                    <div class="polaroid-caption">From being scared of you to this!🙇🏻</div>
+                </div>
+                <div class="polaroid-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/IMG_2520.JPG" alt="">
+                    <div class="polaroid-caption">'Laakhon Mein Ek' behenaji.✨</div>
+                </div>
+                <div class="polaroid-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/IMG_9439.JPG" alt="">
+                    <div class="polaroid-caption">Kuch Acche Photo🎀</div>
+                </div>
+                <div class="polaroid-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/IMG_0294.JPG" alt="">
+                    <div class="polaroid-caption">Kuch aurrr acche Photo😂</div>
+                </div>
+                <div class="polaroid-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/IMG_0787.JPG" alt="">
+                    <div class="polaroid-caption">OK!👍</div>
+                </div>
+            </div>
+        </section>
+        <section id="wishes" class="fullscreen-section">
+            <div class="letter-container" data-aos="zoom-in">
+                <div class="letter-content">
+                    <h2>To The Best Sister,</h2>
+                    <p>Happy Raksha Bandhan, Stuti. More than just a wish, I wanted to give you something that truly
+                        captures our story. This site is to show that journey—from the quiet guy in our classes to the
+                        brother who now considers you family. Your presence has been one of the best parts of my life.
+                        Thank you.</p>
+                    <p>I'm not always the best at saying these things out loud, but I hope you feel it. Our bond wasn't
+                        just built on the good times; it was forged in the challenges, too. Every up and down we've
+                        navigated together has only proven how strong our connection is. You are, without a doubt, the
+                        sister I found and the family I chose.</p>
+                    <p>Thank you for being the incredible person you are. This isn't just festival sentiment; it's a
+                        truth I feel year-round. Wishing you all the happiness today. Happy Rakhi!</p>
+                    <div class="signature"><br><span>~Ankit</span></div>
+                    <button id="surprise-button" class="surprise-btn">P.S. A little something for you...</button>
+                </div>
+            </div>
+            <button id="final-confetti-button" class="confetti-button">🎉</button>
+        </section>
+    </div>
+    <div id="surprise-modal-overlay" class="modal-overlay hidden"></div>
+    <div id="surprise-modal" class="modal hidden">
+        <button id="modal-close-btn" class="modal-close-btn">&times;</button>
+        <h3>A Special Message</h3>
+        <p>Because you deserve all the happiness in the world. Here is something special from me.</p>
+        <a href="https://www.youtube.com/watch?v=nzelzk2sVH8" target="_blank" class="modal-link">Click For Your
+            Surprise!</a>
     </div>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
-</html
+
+</html>

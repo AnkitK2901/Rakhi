@@ -1,298 +1,574 @@
-/* General page setup */
-body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: #111827; /* Fallback background */
-    color: white;
+/* ===================================
+    NEW THEME: ELEGANT & EXPANDED
+==================================== */
+:root {
+    /* Colors */
+    --bg-color: #FEFBF6;          /* A warm off-white */
+    --text-color: #4C4C4C;
+    --header-bg: rgba(254, 251, 246, 0.8);
+    --accent-gold: #D9534F;        /* A festive red */
+    --accent-pink: #FFC107;        /* A vibrant saffron/yellow */
+    --card-bg: #FFFFFF;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lora', serif;
+    --font-special: 'Dancing Script', cursive;
 }
 
-/* The main container that centers everything */
-.welcome-container {
+/* ===================================
+    GENERAL & BACKGROUND
+==================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    margin: 0;
+    overflow-x: hidden;
+    /* ADDED: Hide scrollbar for Firefox */
+    scrollbar-width: none;
+}
+
+/* ADDED: Hide scrollbar for Chrome, Safari, and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- NEW BACKGROUND --- */
+/* CHANGED: Replaced dot pattern with a more elegant damask/paisley pattern */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d9534f' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: -1;
+    animation: slide 60s infinite linear;
+}
+
+@keyframes slide {
+    from { background-position: 0 0; }
+    to { background-position: -240px 120px; }
+}
+
+/* ===================================
+    SECTIONS & TITLES
+==================================== */
+.content-section,
+.fullscreen-section {
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.fullscreen-section {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
-    padding: 20px;
-    background-image: linear-gradient(to bottom right, #111827, #3730a3, #5b21b6);
 }
 
-/* Styling for the main heading */
-h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 4rem; /* 64px */
-    margin-bottom: 1rem; /* 16px */
-}
-
-/* Styling for the paragraph text */
-p {
-    font-size: 1.25rem; /* 20px */
-    max-width: 600px;
-    margin-bottom: 2rem; /* 32px */
-    color: #e5e7eb; /* A light gray */
-}
-
-/* Styling for our button link */
-.button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: white;
-    color: #4f46e5; /* A nice indigo color */
-    font-weight: bold;
-    border-radius: 9999px; /* This makes it a pill shape */
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.button:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
-}
-
-/* Our Simple Animations */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-down {
-    animation: fadeInDown 1s ease forwards;
-    opacity: 0; /* Start hidden */
-}
-
-.fade-in-up {
-    animation: fadeInUp 1s ease forwards;
-    opacity: 0; /* Start hidden */
-}
-/* --- Styles for Chapter Pages --- */
-
-.page-container {
-    padding: 40px 20px;
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 4rem);
     text-align: center;
-    min-height: 100vh;
-    background-image: linear-gradient(to bottom right, #fbcfe8, #fef3c7); /* Pink to Yellow gradient */
-    color: #333;
+    margin-bottom: 4rem;
+    color: var(--accent-gold);
 }
 
-.page-container h1 {
-    color: #be185d; /* A deep pink color */
+/* ===================================
+    GIFT BOX INTRO (IMPROVED DESIGN)
+==================================== */
+#gift-container {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
 }
 
-.page-container p {
-    color: #44403c; /* A dark gray color */
+#gift-container.zoom-out {
+    transform: scale(5);
+    opacity: 0;
+    pointer-events: none;
 }
 
-/* --- Styles for the Photo Gallery --- */
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem; /* 24px */
-    max-width: 1200px;
-    margin: 40px auto;
+.gift-instruction {
+    font-family: var(--font-body);
+    font-style: italic;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 2s forwards;
 }
 
-.gallery-grid img {
+.gift-box {
+    position: relative;
+    width: 250px;
+    height: 180px;
+    cursor: pointer;
+    animation: bounceIn 1s ease-out forwards;
+}
+
+.gift-base {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    background: linear-gradient(to bottom, var(--accent-pink), #e6ac00);
+    position: absolute;
+    bottom: 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.gallery-grid img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-}
-
-/* --- Styles for Navigation Buttons --- */
-
-.navigation-buttons {
-    margin-top: 40px;
-}
-/* --- Styles for Second Year Page --- */
-.page-second-year {
-    background-image: linear-gradient(to bottom right, #dbeafe, #a5f3fc); /* Blue to Cyan gradient */
-}
-
-.page-second-year h1 {
-    color: #1d4ed8; /* A deep blue color */
-}
-
-/* --- Styles for the Timeline --- */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
-/* The central line of the timeline */
-.timeline::after {
+.gift-base::before {
     content: '';
     position: absolute;
-    width: 4px;
-    background-color: white;
-    top: 0;
-    bottom: 0;
+    width: 40px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-gold), #b8433f);
     left: 50%;
-    margin-left: -2px;
+    transform: translateX(-50%);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.gift-text {
+    font-family: var(--font-heading);
+    color: white;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s;
+}
+
+.gift-lid {
+    width: 270px;
+    height: 60px;
+    background: linear-gradient(to bottom, #D9534F, #b8433f);
+    position: absolute;
+    top: 0;
+    left: -10px;
+    border-radius: 5px;
+    box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform-origin: top center;
+}
+
+.gift-lid::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background: var(--accent-pink);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bow-knot {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: var(--accent-pink);
+    border-radius: 50%;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* A container for each timeline event */
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    width: 50%;
-}
-
-/* The circle on the timeline line */
-.timeline-item::after {
+.bow-knot::before,
+.bow-knot::after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
-    right: -10px;
-    background-color: white;
-    border: 4px solid #2563eb;
-    top: 25px;
+    width: 60px;
+    height: 30px;
+    border: 8px solid var(--accent-pink);
     border-radius: 50%;
-    z-index: 1;
 }
 
-/* Position the containers */
-.timeline-item:nth-child(odd) {
-    left: 0;
+.bow-knot::before {
+    top: -20px;
+    left: -50px;
+    transform: rotate(45deg);
+    border-color: var(--accent-pink) var(--accent-pink) transparent transparent;
 }
 
-.timeline-item:nth-child(even) {
-    left: 50%;
+.bow-knot::after {
+    top: -20px;
+    left: 10px;
+    transform: rotate(-45deg);
+    border-color: var(--accent-pink) transparent transparent var(--accent-pink);
 }
 
-/* Adjust the circle for even items */
-.timeline-item:nth-child(even)::after {
-    left: -10px;
+.gift-box.opened .gift-lid {
+    transform: translateY(-200px) rotate(-15deg);
 }
 
-/* The content card */
-.timeline-content {
-    padding: 20px 30px;
-    background-color: white;
-    position: relative;
-    border-radius: 8px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+.gift-box.opened .gift-text {
+    opacity: 1;
+    transform: scale(1);
 }
 
-.timeline-content h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: #1d4ed8;
-}
-/* --- Styles for Third Year Page --- */
-.page-third-year {
-    background-image: linear-gradient(to bottom right, #e9d5ff, #bfdbfe); /* Purple to Blue gradient */
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
-.page-third-year h1 {
-    color: #581c87; /* A deep purple color */
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
 }
 
-/* --- Styles for the Masonry Photo Wall --- */
-.masonry-grid {
-    max-width: 1200px;
-    margin: 40px auto;
+/* ===================================
+    HEADER
+==================================== */
+#main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* This is the column width for the grid items */
-.grid-item {
-    width: 31%; /* Adjust this for more or less columns */
-    margin-bottom: 20px;
-    border-radius: 12px;
-}
-
-.grid-item img {
-    width: 100%;
-    height: auto; /* This allows for different image heights */
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.grid-item img:hover {
-    opacity: 0.8;
-}
-/* --- Styles for Final Wishes Page --- */
-.page-final-wishes {
-    display: flex; /* Using flexbox to center the letter */
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(to bottom, #0f172a, #1e1b4b, #4c1d95); /* A dark, starry night gradient */
-    color: #f1f5f9; /* A soft white */
-}
-
-.letter-container {
-    background-color: rgba(15, 23, 42, 0.6); /* A semi-transparent dark blue */
+#main-header.scrolled {
+    background-color: var(--header-bg);
     backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 40px 50px;
-    max-width: 800px;
-    margin: 40px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px var(--shadow-color);
 }
 
-.letter-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
-    color: #facc15; /* A gold color */
+#main-header nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+/* ===================================
+    WELCOME
+==================================== */
+#welcome h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    margin: 0;
+    color: var(--accent-gold);
+}
+
+#welcome p {
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+.scroll-prompt {
+    position: absolute;
+    bottom: 40px;
+    font-size: 2rem;
+    color: var(--accent-gold);
+    text-decoration: none;
+    opacity: 0.7;
+    animation: bounce 2.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+/* ===================================
+    JOURNEY (INTERACTIVE STORY DECK)
+==================================== */
+.story-deck-container {
+    max-width: 600px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.story-deck {
+    position: relative;
+    width: 100%;
+    height: 350px;
     margin-bottom: 2rem;
 }
 
-.letter-container p {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #e2e8f0; /* A slightly softer white */
-    margin-bottom: 1.5rem;
+.story-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 35px var(--shadow-color);
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    transform-origin: center;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+}
+
+.story-card.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.story-card.previous {
+    transform: translateX(-150%) rotate(-15deg);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.story-card h3 {
+    margin-top: 0;
+    font-family: var(--font-heading);
+    color: var(--accent-gold);
+    font-size: 2.5rem;
+}
+
+.story-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.story-deck-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.nav-btn {
+    padding: 10px 25px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--accent-gold);
+    border: 2px solid var(--accent-pink);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: var(--accent-pink);
+    color: white;
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* ===================================
+    PHOTOS & LETTER
+==================================== */
+/* --- UPGRADED PHOTO GALLERY --- */
+/* CHANGED: Switched to CSS Grid for better handling of multiple photos */
+.polaroid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding-top: 2rem;
+}
+
+.polaroid-card {
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid #eee;
+    /* Removed fixed width to allow grid to handle sizing */
+}
+
+/* ADDED: More varied rotations for a gallery of 5-6 photos */
+.polaroid-card:nth-child(1) { transform: rotate(-5deg); }
+.polaroid-card:nth-child(2) { transform: rotate(4deg); }
+.polaroid-card:nth-child(3) { transform: rotate(6deg); }
+.polaroid-card:nth-child(4) { transform: rotate(-3deg); }
+.polaroid-card:nth-child(5) { transform: rotate(5deg); }
+.polaroid-card:nth-child(6) { transform: rotate(-6deg); }
+
+.polaroid-card:hover {
+    transform: rotate(0deg) scale(1.08);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.polaroid-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.polaroid-caption {
+    font-family: var(--font-special);
+    text-align: center;
+    color: #555;
+    font-size: 1.5rem;
+    margin: 0.75rem 0 0.25rem;
+}
+
+.letter-container {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: clamp(2rem, 5vw, 4rem);
+    max-width: 800px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.letter-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin: 0 0 2rem 0;
+}
+
+.letter-content p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin-bottom: 1.5em;
 }
 
 .signature {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
+    font-family: var(--font-special);
+    font-size: 2.25rem;
     text-align: right;
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    color: #facc15;
+    color: var(--accent-gold); /* Changed to gold for better consistency */
 }
 
-/* --- Styles for the Confetti Canvas --- */
-#confetti-canvas {
-    position: fixed; /* It covers the whole screen */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* It stays behind the content */
+/* ===================================
+    BUTTONS & MODAL
+==================================== */
+.surprise-btn,
+.modal-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 12px 30px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--accent-gold);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.surprise-btn:hover,
+.modal-link:hover {
+    background-color: #c09d31;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.confetti-button {
+    background: var(--accent-gold);
+    border: none;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--accent-gold);
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+.confetti-button:hover {
+    transform: scale(1.1);
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 10001;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    z-index: 10002;
+    text-align: center;
+}
+
+.modal h3 {
+    font-family: var(--font-heading);
+    color: var(--accent-gold);
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-color);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.modal-close-btn:hover {
+    opacity: 1;
 }
