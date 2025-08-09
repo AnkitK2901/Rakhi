@@ -25,11 +25,10 @@ ssh ${GCE_USER}@${GCE_HOST} "
     cd ${PROJECT_DIR} || { echo '❌ Directory not found on server!'; exit 1; }
 
     echo '🔄 Pulling latest changes from GitHub...'
-    # No sudo needed here because we set the directory permissions earlier
     git pull origin ${GIT_BRANCH} || { echo '❌ Git pull failed on server!'; exit 1; }
 
-    echo '♻  Restarting ${SERVICE_NAME} to apply changes...'
-    sudo systemctl restart ${SERVICE_NAME}
+    echo '♻  Reloading ${SERVICE_NAME} to apply changes without downtime...'
+    sudo systemctl reload ${SERVICE_NAME}
 
     echo 'ℹ️  Checking status of ${SERVICE_NAME}:'
     sudo systemctl status ${SERVICE_NAME} --no-pager
