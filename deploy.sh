@@ -2,7 +2,7 @@
 
 # --- Configuration ---
 GCE_USER="ankit_anjul"
-GCE_HOST="s.clustercode.dev"   # Your server's domain or IP address
+GCE_HOST="34.93.194.88"   # Your server's domain or IP address
 PROJECT_DIR="/var/www/rakhi"   # The new project folder on the server
 SERVICE_NAME="nginx"
 GIT_BRANCH="main"              # The git branch to deploy
